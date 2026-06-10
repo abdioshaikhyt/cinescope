@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+  --bg:#0A0A0A;
+  --accent:#D4AF37;
+  --card:#1F1F1F;
+  --text:#F5F5F1;
+  --text-muted:#B3B3B3;
+  --text-on-accent:#0A0A0A;
+  --font-heading: "Bebas Neue";
+  --font-body: "Inter Tight";
+}
+
+body {
+ font-family: var(--font-body), Helvetica, sans-serif;
+ color: var(--text);
+ background-color: var(--bg);   
+
+}
