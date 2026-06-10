@@ -13,6 +13,7 @@
   --text-on-accent:#0A0A0A;
   --font-heading: "Bebas Neue";
   --font-body: "Inter Tight";
+  --border: #333333;
 }
 
 body {
