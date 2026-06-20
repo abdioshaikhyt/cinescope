@@ -59,3 +59,27 @@
     margin-top: 3rem;
 
 }   
+
+.cards-container {
+    overflow-x: auto;
+    display: flex;
+    gap: 1.2rem;
+}
+
+.trending-row, .upcoming-row, .top-rated-row {
+    margin-bottom: 2rem;
+}
+
+.movie-card {
+    flex: 0 0 200px;
+    background-color: var(--card);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    
+}
+
+.movie-card img {
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+}
