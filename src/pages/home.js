@@ -1,4 +1,4 @@
-import { getTrending, getTopRated, getUpcoming } from '../js/api.js';
+import { getTrending, getTopRated, getUpcoming, getGenres } from '../js/api.js';
 import { backdropBaseURL, posterBaseURL } from '../js/config.js';
 
 async function init() {
@@ -7,13 +7,19 @@ async function init() {
     const trendingData = await getTrending();
     const topRatedData = await getTopRated();
     const upcomingData = await getUpcoming(); 
+    const genreData = await getGenres();
+    const genreMap = {};
+        genreData.forEach(genre => {
+            genreMap[genre.id] = genre.name;
+        })
     }
+
         catch(error) {
             console.error(error);
            }
 }
 
-function renderCards(movies, container) {
+function renderCards(movies, container, genreMap) {
     movies.forEach(movie => { 
         const wrapper = document.createElement('div');
         wrapper.className= 'movie-card';
