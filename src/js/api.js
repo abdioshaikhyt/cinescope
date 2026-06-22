@@ -39,4 +39,16 @@ async function getUpcoming() {
     }
 }
 
-export {getTrending, getUpcoming, getTopRated};
+async function getGenres() {
+    try {
+        const response = await fetch(`${baseURL}/genre/movie/list?api_key=${apiKey}`);
+        if(response.ok) {
+            const data = await response.json();
+            return data.genres;
+        }
+    } catch(error) {
+        console.log(error);
+    }
+}
+
+export {getTrending, getUpcoming, getTopRated, getGenres};
