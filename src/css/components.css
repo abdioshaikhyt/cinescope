@@ -83,3 +83,35 @@
     height: 300px;
     width: 100%;
 }
+
+.card-meta {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.movie-metadata {
+    padding: 0.2rem 0.75rem;
+}
+
+.movie-metadata h4 {
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rating {
+    color: var(--accent);
+    font-size: 14px;
+
+}
+
+.genre {
+     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;     
+}
