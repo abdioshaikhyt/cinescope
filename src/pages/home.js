@@ -15,14 +15,17 @@ async function init() {
        const trendingRow = document.querySelector('.trending-row .cards-container');
        const topRatedRow = document.querySelector('.top-rated-row .cards-container');
        const upComingRow = document.querySelector('.upcoming-row .cards-container');
+       const movieIndex = 0;
         renderCards(trendingData, trendingRow, genreMap);
         renderCards(topRatedData, topRatedRow, genreMap);
         renderCards(upcomingData, upComingRow, genreMap);
+    initHero(trendingData.slice(0,5));
     }
 
         catch(error) {
             console.error(error);
            }
+    
 }
 
 function renderCards(movies, container, genreMap) {
@@ -57,6 +60,62 @@ function renderCards(movies, container, genreMap) {
         container.appendChild(wrapper);
     }); 
 
+}
+
+function initHero(movies) {
+    let currentMovie;
+    let index = 0;
+
+    const wrapper = document.querySelector('.outer-slideshow');
+    const slideWrapper = document.querySelector('.slide');
+    const contentWrapper = document.querySelector('.content');
+    const metadataWrapper = document.querySelector('.metadata');
+    const movieTitle = document.querySelector('.content h2');
+    const yearTag = document.querySelector('.year');
+    const runTimeTag = document.querySelector('.runtime');
+    const ratingTag = document.querySelector('.rating');
+    const overviewTag = document.querySelector('.overview');
+    const contentButton = document.querySelector('.content-button');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    const dotsContainer = document.querySelector('.dots-container');
+    const spanElements = dotsContainer.querySelectorAll('span');
+     contentButton.addEventListener('click', () => {
+            window.location.href = `movie.html?id=${currentMovie.id}`;
+              });
+    prevButton.addEventListener('click', () => {
+        if(index == 0 ) {
+            return;
+        }
+        loadMovie(--index);
+
+    });
+    nextButton.addEventListener('click', () => {
+        if(index == 4) {    
+            return;
+        }
+        loadMovie(++index);
+    });
+     
+    setInterval( () => {
+        index++;
+        if(index > 4) {
+            index = 0;
+        }
+        loadMovie(index);
+    }, 20000);
+    function loadMovie(index) {
+         currentMovie = movies[index];
+        slideWrapper.style.backgroundImage = `url(${backdropBaseURL}${currentMovie.backdrop_path})`;
+        movieTitle.textContent = currentMovie.title;
+        ratingTag.textContent = currentMovie.vote_average.toFixed(1);
+        yearTag.textContent = currentMovie.release_date.slice(0, 4);
+        overviewTag.textContent = currentMovie.overview;
+        spanElements.forEach(span => span.classList.remove('active'));
+        spanElements[index].classList.add('active');
+        
+    }
+    loadMovie(0);
 }
 
 init();
