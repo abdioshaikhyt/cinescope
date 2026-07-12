@@ -15,7 +15,7 @@ async function init() {
        const trendingRow = document.querySelector('.trending-row .cards-container');
        const topRatedRow = document.querySelector('.top-rated-row .cards-container');
        const upComingRow = document.querySelector('.upcoming-row .cards-container');
-       const movieIndex = 0;
+       
         renderCards(trendingData, trendingRow, genreMap);
         renderCards(topRatedData, topRatedRow, genreMap);
         renderCards(upcomingData, upComingRow, genreMap);
@@ -87,14 +87,20 @@ function initHero(movies) {
         if(index == 0 ) {
             return;
         }
-        loadMovie(--index);
+        index --;
+           slideWrapper.classList.add('fading-out');
+        slideWrapper.style.opacity = 0;
+         
 
     });
     nextButton.addEventListener('click', () => {
         if(index == 4) {    
             return;
         }
-        loadMovie(++index);
+        index++;
+           slideWrapper.classList.add('fading-out');
+        slideWrapper.style.opacity = 0;
+        
     });
      
     setInterval( () => {
@@ -102,8 +108,21 @@ function initHero(movies) {
         if(index > 4) {
             index = 0;
         }
-        loadMovie(index);
+           slideWrapper.classList.add('fading-out');
+        slideWrapper.style.opacity = 0;
+        
+        
     }, 20000);
+
+      slideWrapper.addEventListener('transitionend', () => {
+        if(slideWrapper.classList.contains('fading-out')) {
+            slideWrapper.classList.remove('fading-out');
+            slideWrapper.style.opacity = 1;
+            loadMovie(index);
+            console.log('transitionend fired', slideWrapper.classList.contains('fading-out'));
+        }
+            
+        });
     function loadMovie(index) {
          currentMovie = movies[index];
         slideWrapper.style.backgroundImage = `url(${backdropBaseURL}${currentMovie.backdrop_path})`;
@@ -112,8 +131,7 @@ function initHero(movies) {
         yearTag.textContent = currentMovie.release_date.slice(0, 4);
         overviewTag.textContent = currentMovie.overview;
         spanElements.forEach(span => span.classList.remove('active'));
-        spanElements[index].classList.add('active');
-        
+        spanElements[index].classList.add('active');   
     }
     loadMovie(0);
 }
