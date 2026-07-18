@@ -90,6 +90,7 @@ function initHero(movies) {
         index --;
            slideWrapper.classList.add('fading-out');
         slideWrapper.style.opacity = 0;
+        console.log(index, 'prevButton was clicked');
          
 
     });
@@ -100,6 +101,7 @@ function initHero(movies) {
         index++;
            slideWrapper.classList.add('fading-out');
         slideWrapper.style.opacity = 0;
+        console.log(index, 'nextButton was clicked');
         
     });
      
@@ -110,6 +112,7 @@ function initHero(movies) {
         }
            slideWrapper.classList.add('fading-out');
         slideWrapper.style.opacity = 0;
+        console.log(index, '20s slide transmission');
         
         
     }, 20000);
