@@ -25,6 +25,46 @@
             </ul>
         </div>
     </nav>
-    <script type="module" src="js/pages/browse.js"></script>
+    <main class="browse-container">
+        <section class="browse-controls">
+            <h1 class="browse-title">Browse Movies </h1>
+            <div class="searchBar-Filter">
+                <label for="searchBar">Search Movies</label>
+            <input class="searchbar" type="text" placeholder="Search for movies" id="searchBar"/>
+            <button class="filter-button">≡</button>
+            </div>
+            <p>Loading</p>
+            <div class="filter-panel">
+                <div class="filter-group">
+                <label>Genre</label>
+                <div class="genre-pills">
+
+                </div>
+                </div>
+                <div class="filter-group">
+                    <label for="sort-by-pill">Sort By</label>
+                    <select id="sort-by-pill">
+                        <option value="popularity.desc">Popularity</option>
+                        <option value="vote_average.desc">Rating</option>
+                        <option value="primary_release_date.desc">Release Date</option>
+                    </select>
+            
+                </div>
+                <div class="filter-group">
+                <label for="year-input">Year</label>
+                <input id="year-input" list="year-options"/>
+                <datalist id="year-options"></datalist>
+                </div>
+                <div class="filter-group">
+                    <label for="language-input">Language</label>
+                    <input id="language-input" list="language-options"/>
+                    <datalist id="language-options"></datalist>
+                </div>
+            </div>
+        </section>
+        <div class="movies-grid">
+        </div>
+    </main>
+    <script type="module" src="pages/browse.js"></script>
 </body>
 </html>

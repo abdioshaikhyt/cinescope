@@ -61,4 +61,37 @@ async function getGenres() {
     }
 }
 
-export {getTrending, getUpcoming, getTopRated, getGenres};
+async function discoverMovies(sortBy,genreId, year, language) {
+    let url = '';
+   
+    if (genreId) {
+        url += '&with_genre=' + genreId;
+
+    }
+     
+    if(year) {
+        url += '&year=' + year;
+
+    }
+
+    if(language) {
+        url += '&with_original_language=' + language;
+    }
+    try {
+        
+        const response = await fetch(`${baseURL}/discover/movie?api_key=${apiKey}&sort_by=${sortBy}${url}`);
+
+
+        if(!response.ok) {
+            throw new Error ("Failed to add optional filter");
+        }
+        const data = await response.json();
+        return data.results;
+    } 
+    catch (error) {
+        console.log(error);
+    }
+    
+}
+
+export {getTrending, getUpcoming, getTopRated, getGenres, discoverMovies};
