@@ -203,3 +203,42 @@ background-color: var(--card);
 .cards-container::-webkit-scrollbar-thumb:hover {
     background-color: var(--accent);
 }
+
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.2rem;
+}
+
+.filter-panel {
+    display: none;
+    width: 100%;
+    max-width: 500px;
+    
+
+}
+
+.searchBar-Filter {
+    max-width: 500px;
+    width: 100%;
+
+}
+.filter-panel.show {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1.5rem;
+    padding: 1rem;
+    background-color: var(--card);
+    margin-bottom: 2rem;
+
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    white-space: nowrap;
+}

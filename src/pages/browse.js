@@ -17,6 +17,14 @@ async function init() {
     catch(error) {
         console.log(error);
     }
-}
 
+    const divFilterPanel = document.querySelector(".filter-panel");
+    const filterButton = document.querySelector(".filter-button");
+
+    filterButton.addEventListener('click', () => {
+    divFilterPanel.classList.toggle("show");
+
+})
+}
+    
 init();
