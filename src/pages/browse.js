@@ -12,6 +12,14 @@ async function init() {
 
     const movieGrid = document.querySelector('.movies-grid');
     renderCards(moviesData, movieGrid, genreMap);
+
+     const genrePillsContainer = document.querySelector('.genre-pills');
+    genreData.forEach(genre => {
+         const genrePill = document.createElement('button');
+        genrePill.textContent = genre.name;
+        genrePill.dataset.id = genre.id;
+        genrePillsContainer.appendChild(genrePill);
+    });
     }
     //placeholder error while developing the core functionality of the browse.js init function
     catch(error) {
@@ -23,8 +31,8 @@ async function init() {
 
     filterButton.addEventListener('click', () => {
     divFilterPanel.classList.toggle("show");
+}); 
 
-})
 }
-    
+
 init();

@@ -213,15 +213,60 @@ background-color: var(--card);
 .filter-panel {
     display: none;
     width: 100%;
-    max-width: 500px;
+    max-width: 900px;
     
 
 }
 
 .searchBar-Filter {
-    max-width: 500px;
+    max-width: 900px;
     width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: var(--card);
+    border-radius: 12px;
+    gap: 15px;
 
+}
+
+.filter-button {
+    background: transparent;
+    color: var(--text);
+    outline: none;
+    font-size: 1.5rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease, color 0.3s ease;
+    border: none;
+}
+
+.filter-button:hover {
+    cursor: pointer;
+    border: 1px solid var(--accent);
+    box-shadow: 2px 2px 1px 1px var(--accent);
+    color: var(--accent);
+}
+.searchbar {
+    background: transparent;
+    flex: 1;
+    color: var(--text);
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease, color 0.3s ease;
+    
+}
+
+.searchbar:focus {
+    border: 2px solid var(--accent);
+    box-shadow: 2px 2px 2px 2px var(--accent);
+    outline: none;
+}
+
+#sort-by-pill, #year-input, #language-input {
+    width: 100%
 }
 .filter-panel.show {
     display: grid;
@@ -230,6 +275,7 @@ background-color: var(--card);
     padding: 1rem;
     background-color: var(--card);
     margin-bottom: 2rem;
+    align-items: start;
 
 }
 
@@ -241,4 +287,16 @@ background-color: var(--card);
 
 .filter-group label {
     white-space: nowrap;
+}
+
+.genre-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.genre-pills button {
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+
 }
