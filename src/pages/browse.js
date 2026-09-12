@@ -19,7 +19,12 @@ async function init() {
         genrePill.textContent = genre.name;
         genrePill.dataset.id = genre.id;
         genrePillsContainer.appendChild(genrePill);
+        genrePill.addEventListener('click', () => {
+            genrePill.classList.toggle("active");
+        })
     });
+        const resultsCount = document.querySelector('.results-count');  
+        resultsCount.textContent = `Showing ${moviesData.length} results`;
     }
     //placeholder error while developing the core functionality of the browse.js init function
     catch(error) {
