@@ -65,7 +65,7 @@ async function discoverMovies(sortBy,genreId, year, language) {
     let url = '';
    
     if (genreId) {
-        url += '&with_genre=' + genreId;
+        url += '&with_genres=' + genreId;
 
     }
      
