@@ -55,7 +55,7 @@ async function init() {
         })
     });
         const resultsCount = document.querySelector('.results-count');  
-        resultsCount.textContent = `Showing ${moviesData.length} results`;
+        resultsCount.textContent = `Showing ${moviesData.length} results.`;
     }
     //placeholder error while developing the core functionality of the browse.js init function
     catch(error) {
